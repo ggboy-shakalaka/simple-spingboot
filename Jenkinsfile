@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        node {
-            label 'maven'
-        }
-    }
+    agent any
 
     parameters {
         string(name:'TAG_NAME', defaultValue: '', description:'')
