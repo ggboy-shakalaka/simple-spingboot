@@ -1,17 +1,21 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name:'TAG_NAME', defaultValue: '', description:'')
-    }
-
-    environment {
-        AAA_BBB_ID = 'dockerhub-id'
-    }
-
     stages {
-        steps('Build') {
-            echo 'Building..'
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
         }
     }
 }
