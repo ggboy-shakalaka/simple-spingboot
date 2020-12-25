@@ -1,21 +1,21 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'maven'
+        }
+    }
+
+    parameters {
+        string(name:'TAG_NAME', defaultValue: '', description:'')
+    }
+
+    environment {
+        AAA_BBB_ID = 'dockerhub-id'
+    }
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+        steps {
+            echo 'Building..'
         }
     }
 }
